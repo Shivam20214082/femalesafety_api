@@ -36,6 +36,11 @@ const tips = [
   // Add more tips here
 ];
 
+// Set up a route for the home page
+app.get('/', (req, res) => {
+  res.send('Welcome to the Female Safety Tips API');
+});
+
 app.get('/tips', (req, res) => {
   res.json(tips);
 });
@@ -76,7 +81,7 @@ app.get('/tips/search', (req, res) => {
   }
 });
 
-const port = 3000;
+const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`API server running on port ${port}`);
 });
